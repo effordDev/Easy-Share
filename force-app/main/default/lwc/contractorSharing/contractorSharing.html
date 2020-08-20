@@ -1,0 +1,108 @@
+<template>
+
+    <template if:true={loading}>
+
+        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+
+    </template>
+
+        <div class="slds-grid"> 
+
+            <div class="slds-col slds-size_1-of-2">
+
+                <div class="slds-box grey-box">
+
+                    <div class="slds-text-heading_medium">Grants</div>
+            
+                    <div style="height: 350px;">
+            
+                        <lightning-datatable 
+                            columns={grantColumns} 
+                            data={grants} 
+                            key-field="id"
+                            onrowselection={getSelectedGrants}>
+                        </lightning-datatable>
+                
+                    </div>
+            
+                </div>
+            
+                <br /> 
+            
+                <div class="slds-box green-box">
+            
+                    <div class="slds-text-heading_medium">Current Access</div>
+            
+                    <div style="height: 250px;">
+            
+                        <lightning-datatable 
+                            columns={currentAccessColumns} 
+                            data={currentAccess} 
+                            key-field="id"
+                            hide-checkbox-column>
+                        </lightning-datatable>
+                
+                    </div>
+            
+                </div>
+
+            </div>
+
+            &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+
+            <div class="slds-col slds-size_1-of-2">
+
+                <div class="slds-box grey-box">
+            
+                    <div class="slds-text-heading_medium">Counties</div>
+            
+                    <div style="height: 350px;">
+            
+                        <lightning-datatable 
+                            columns={countyColumns} 
+                            data={counties} 
+                            key-field="id"
+                            onsort={sortCounties}
+                            sorted-by={sortBy}
+                            sorted-direction={sortDirection}
+                            onrowselection={getSelectedCounties}>
+                        </lightning-datatable>
+                
+                    </div>
+            
+                </div>
+
+                <br />
+
+                <div class="slds-box grey-box">
+            
+                    <div class="slds-text-heading_medium">Users</div>
+            
+                    <div style="height: 250px;">
+            
+                        <lightning-datatable 
+                            columns={userColumns} 
+                            data={users} 
+                            key-field="id"
+                            onrowselection={getSelectedUsers}>
+                        </lightning-datatable>
+                
+                    </div>
+            
+                </div>
+
+            </div>
+
+        </div>
+
+        <br />
+
+        <center>
+
+            <lightning-button label="Share" variant="brand" disabled={disabled} onclick={agreementShares}></lightning-button>
+            &nbsp;&nbsp;
+            <lightning-button label="Remove Sharing" variant="destructive" disabled={disabled} onclick={deleteShares}></lightning-button>
+
+        </center>
+
+</template>
