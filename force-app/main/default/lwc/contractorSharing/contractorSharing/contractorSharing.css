@@ -1,0 +1,27 @@
+@media screen and (max-width:640px) {
+    table.responsive tbody td {
+      display: block;
+      text-align: center;
+      width: 100%;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      padding-bottom: 10px;
+    }
+}
+
+.flex {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.grey-box {
+    background-color: #dedede;
+}
+
+.green-box {
+    background-color: #90b17f;
+}
+
+.iconWidth {
+    width: 30px;
+}
